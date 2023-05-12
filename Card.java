@@ -2,7 +2,7 @@ public class Card {
     private String suit;
     private int val;
     private int rank;
-    public Card(int val, String suit, rank){
+    public Card(int val, String suit, int rank){
         this.val = val;
         this.suit = suit;
         this.rank = rank;
@@ -17,4 +17,7 @@ public class Card {
         return rank;
     }
     
+    public void setVal(int v) {
+        val = v;
+    }
 }
