@@ -8,7 +8,7 @@ public class Card {
     public String getSuit(){
         return suit;
     }
-    public void getVal(){
+    public int getVal(){
         return val;
     }
     
