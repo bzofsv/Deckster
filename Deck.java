@@ -43,5 +43,11 @@ public class Deck {
             int ind = (int) (Math.random() * i + 1);
             temp.add(deck.remove(ind));
         }
+
+        deck = temp;
+    }
+
+    public Card draw() {
+        return deck.remove();
     }
 }

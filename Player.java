@@ -40,4 +40,12 @@ public class Player {
 
         return -1; //impossible decision
     }
+
+    public void addCard(Card c) {
+        hand.add(c);
+    }
+
+    public Queue<Card> hand() {
+        return hand;
+    }
 }
