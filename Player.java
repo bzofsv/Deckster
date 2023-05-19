@@ -6,6 +6,7 @@ public class Player {
     String name;
     int bet;
     int chips;
+    int cardsval;
 
     public Player(String name, int chips) {
         this.name = name;
@@ -56,5 +57,19 @@ public class Player {
 
     public int getBet() {
         return bet;
+    }
+    public int valOfCards(){
+        for(int i = 0; i<hand.size();i++){
+            cardsval += ((LinkedList<Card>) hand).get(i).getVal();
+        }
+        return cardsval;
+        
+
+    }
+    public void setChips(int c){
+        chips = c;
+    }
+    public int getChips(){
+        return chips;
     }
 }
