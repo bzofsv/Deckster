@@ -48,4 +48,13 @@ public class Player {
     public Queue<Card> hand() {
         return hand;
     }
+
+    public void placeBet(int bet) {
+        this.bet = bet;
+        chips -= bet;
+    }
+
+    public int getBet() {
+        return bet;
+    }
 }
