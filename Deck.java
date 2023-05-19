@@ -50,4 +50,8 @@ public class Deck {
     public Card draw() {
         return deck.remove();
     }
+
+    public void add(Card c) {
+        deck.add(c);
+    }
 }
