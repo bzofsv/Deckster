@@ -8,7 +8,9 @@ class DecisionTree {
         this.right = right;
     }
 
-    public DecisionTree() {}
+    public DecisionTree(String decision) {
+        this.decision = decision;
+    }
 
     public DecisionTree getLeft() {
         return left;
@@ -20,5 +22,13 @@ class DecisionTree {
 
     public void setVal(String decision) {
         this.decision = decision;
+    }
+
+    public void setLeft(DecisionTree d) {
+        this.left = d;
+    }
+
+    public void setRight(DecisionTree d) {
+        this.right = d;
     }
 }
