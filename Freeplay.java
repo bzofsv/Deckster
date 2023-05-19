@@ -14,7 +14,7 @@ public class Freeplay {
     public void hit(){
         p.addCard(d.draw());
         p.placeBet(bet);
-        pool += bet;
+        pool += (2*bet);
         p.makeDecision("hit");
         if(p.valOfCards()>21){
             pool = 0;
@@ -31,6 +31,12 @@ public class Freeplay {
         if(dealer.valOfCards()>21){
             p.setChips(p.getChips()+pool);
             pool = 0;
+            while(p.hand.peek() != null){
+                d.add(p.hand.remove());
+            }
+            while(dealer.hand.peek() != null){
+                d.add(dealer.hand.remove());
+            }
             
         }
     }
@@ -41,6 +47,37 @@ public class Freeplay {
             dealer.makeDecision("hit");
         }
         else dealer.makeDecision("stand");
+
+        if(dealer.valOfCards()>21 ||
+        p.valOfCards()> dealer.valOfCards()){
+            p.setChips(p.getChips()+pool);
+            pool = 0;
+            while(p.hand.peek() != null){
+                d.add(p.hand.remove());
+            }
+            while(dealer.hand.peek() != null){
+                d.add(dealer.hand.remove());
+            }
+            
+        }
+
+        else if(dealer.valOfCards()>p.valOfCards()){
+            pool = 0;
+            while(p.hand.peek()!= null){
+                d.add(p.hand.remove());
+            }
+            while(dealer.hand.peek()!= null){
+                d.add(dealer.hand.remove());
+            }
+        }
+        else{
+            while(p.hand.peek()!= null){
+                d.add(p.hand.remove());
+            }
+            while(dealer.hand.peek()!= null){
+                d.add(dealer.hand.remove());
+            }
+        }
     }
 
 }
