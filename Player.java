@@ -24,6 +24,7 @@ public class Player {
 
     public int makeDecision(String decision) {
         DecisionTree curr = decisions;
+        
 
         while(curr.getLeft() != null && curr.getRight() != null) {
             if(curr.getLeft() != null) curr = curr.getLeft();
