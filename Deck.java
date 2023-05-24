@@ -18,13 +18,13 @@ public class Deck {
         for(int i = 0; i < 4; i++) {
             for(int j = 1; j <= 13; j++) {
 
-                String suit = "";
+                int suit = 0;
                 int val = -1;
                 int rank = j;
-                if(i == 0) suit = "spades";
-                else if(i == 1) suit = "clubs";
-                else if(i == 2) suit = "diamonds";
-                else if(i == 3) suit = "hearts";
+                if(i == 0) suit = 3;
+                else if(i == 1) suit = 0;
+                else if(i == 2) suit = 1;
+                else if(i == 3) suit = 2;
 
                 if(j > 11 || j == 1) val = 11;
                 else val = j;

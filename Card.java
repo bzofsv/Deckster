@@ -1,13 +1,15 @@
+import java.awt.Graphics2D; 
+
 public class Card {
-    private String suit;
+    private int suit;
     private int val;
     private int rank;
-    public Card(int val, String suit, int rank){
+    public Card(int val, int suit, int rank){
         this.val = val;
         this.suit = suit;
         this.rank = rank;
     }
-    public String getSuit(){
+    public int getSuit(){
         return suit;
     }
     public int getVal(){
@@ -17,7 +19,15 @@ public class Card {
         return rank;
     }
     
+    public void setSuit(int s) {
+        suit = s;
+    }
+
     public void setVal(int v) {
         val = v;
+    }
+
+    public void setRank(int r) {
+        rank = r;
     }
 }
