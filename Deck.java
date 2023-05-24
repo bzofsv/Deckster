@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Deck {
-    LinkedList<Card> deck;
+    LinkedList<Card> deck = new LinkedList<>();
 
     public Deck() {
         for(int i = 0; i < 6; i++) {
@@ -40,7 +40,7 @@ public class Deck {
         LinkedList<Card> temp = new LinkedList<>();
 
         for(int i = 312; i >= 1; i--) {
-            int ind = (int) (Math.random() * i + 1);
+            int ind = (int) (Math.random() * i);
             temp.add(deck.remove(ind));
         }
 

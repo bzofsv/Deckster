@@ -6,7 +6,6 @@ public class Player {
     String name;
     int bet;
     int chips;
-    int cardsval;
 
     public Player(String name, int chips) {
         this.name = name;
@@ -25,7 +24,11 @@ public class Player {
 
     public int makeDecision(String decision) {
         DecisionTree curr = decisions;
-        
+
+        if(curr == null) {
+            decisions = new DecisionTree(decision);
+            return decision.equals("hit") ? 0 : 1;
+        }
 
         while(curr.getLeft() != null && curr.getRight() != null) {
             if(curr.getLeft() != null) curr = curr.getLeft();
@@ -60,7 +63,8 @@ public class Player {
         return bet;
     }
     public int valOfCards(){
-        for(int i = 0; i<hand.size();i++){
+        int cardsval = 0;
+        for(int i = 0; i < hand.size(); i++){
             cardsval += ((LinkedList<Card>) hand).get(i).getVal();
         }
         return cardsval;
