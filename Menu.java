@@ -9,7 +9,7 @@ import java.io.*;
 public class Menu extends JComponent implements ActionListener {
 
     private JButton freeplayBTN = new JButton("freeplay");
-    private JButton ccBTN = new JButton("cc simulator");
+    private JButton ccBTN = new JButton("cc sim");
     private JButton exitBTN = new JButton("exit");
 
     private static BufferedImage backgroundImage;
@@ -17,19 +17,19 @@ public class Menu extends JComponent implements ActionListener {
 
 
     public Menu(){
-    freeplayBTN.addActionListener(this);
-    ccBTN.addActionListener(this);
-    exitBTN.addActionListener(this);
+        freeplayBTN.addActionListener(this);
+        ccBTN.addActionListener(this);
+        exitBTN.addActionListener(this);
     }
 
-    public void painter(Graphics g0){
+    public void paintComponent(Graphics g0){
         
 
         Graphics2D g1 = (Graphics2D) g0;
 
         try{
             backgroundImage = ImageIO.read(new File("images/background.png"));
-            decksterImage = ImageIO.read(new File("images/deckster.png"));
+            decksterImage = ImageIO.read(new File("images/deckster_real.png"));
         }
 
         catch(IOException e){
@@ -39,12 +39,17 @@ public class Menu extends JComponent implements ActionListener {
         g1.drawImage(backgroundImage, 0, 0, null);
         g1.setFont(new Font("Bell MT", Font.BOLD, 100));
         g1.setColor(Color.WHITE);
-        g1.drawImage(decksterImage, 380, 100, null);
+        g1.drawImage(decksterImage, 445, 10, null);
 
 
-        freeplayBTN.setFont(new Font("Bell MT", Font.BOLD, 40)); 
-        ccBTN.setFont(new Font("Bell MT", Font.BOLD, 40));
-        exitBTN.setFont(new Font("Bell MT", Font.BOLD, 40));
+        freeplayBTN.setBounds(400, 300, 150, 80);
+        ccBTN.setBounds(600, 300, 150, 80);  
+        exitBTN.setBounds(500, 400, 150, 80);
+
+
+        freeplayBTN.setFont(new Font("Tahoma", Font.ROMAN_BASELINE, 20)); 
+        ccBTN.setFont(new Font("Tahoma", Font.ROMAN_BASELINE, 20));
+        exitBTN.setFont(new Font("Tahoma", Font.ROMAN_BASELINE, 20));
         
         super.add(freeplayBTN);
         super.add(ccBTN);
