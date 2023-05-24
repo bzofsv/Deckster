@@ -67,7 +67,7 @@ public class Menu extends JComponent implements ActionListener {
 
 
         else if (selectedBTN==freeplayBTN){
-            // Freeplay.currentState = Freeplay.STATE.GAME;
+            // Menu.currentState = Freeplay.STATE.GAME;
             // Freeplay.menuFrame.dispose(); 
             // Freeplay.gameRefreshThread.start(); 
             // Freeplay.gameCheckThread.start();
