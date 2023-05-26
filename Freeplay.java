@@ -63,7 +63,7 @@ public class Freeplay {
 
     }
 
-    public int stand(){
+    public int stand(){ //returns -1 -> dealer wins, 0 -> tie, 1 -> player wins
         p.makeDecision("stand");
         System.out.println(p.valOfCards());
         if(dealer.valOfCards()<=16){
@@ -80,7 +80,7 @@ public class Freeplay {
             System.out.println(dealer.valOfCards());
         }
 
-        if(dealer.valOfCards()>21 ||
+        if(dealer.valOfCards() > 21 ||
         p.valOfCards()> dealer.valOfCards()){
             p.setChips(p.getChips()+pool);
             pool = 0;

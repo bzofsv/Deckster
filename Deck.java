@@ -48,10 +48,16 @@ public class Deck {
     }
 
     public Card draw() {
+        if(deck.size() <= 4) {
+            deck = createDeck();
+            shuffle();
+        }
+        
         return deck.remove();
     }
 
     public void add(Card c) {
         deck.add(c);
     }
+
 }

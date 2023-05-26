@@ -22,7 +22,7 @@ public class Player {
         this.chips = 0;
     }
 
-    public int makeDecision(String decision) {
+    public int makeDecision(String decision) { //returns 0 -> hit, 1 -> stand, -1 -> impossible
         DecisionTree curr = decisions;
 
         if(curr == null) {
