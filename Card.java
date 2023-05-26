@@ -12,8 +12,6 @@ public class Card {
 
     private int xPos;
     private int yPos;
-
-
     
     public Card(int val, int suit, int rank){
         this.val = val;

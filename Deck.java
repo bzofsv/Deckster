@@ -52,7 +52,7 @@ public class Deck {
             deck = createDeck();
             shuffle();
         }
-        
+
         return deck.remove();
     }
 
@@ -60,4 +60,7 @@ public class Deck {
         deck.add(c);
     }
 
+    public int cardsLeft() {
+        return deck.size();
+    }
 }

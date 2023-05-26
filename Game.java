@@ -10,7 +10,17 @@ public class Game {
         dealer = new Player("poggie woggies");
         user = new Player("test");
         d = new Deck();
-        Freeplay lol = new Freeplay(dealer, user, 0, d);
+        CardCountingSimulator lol = new CardCountingSimulator(dealer, user, 0, d);
+        System.out.println(lol.hit());
+        System.out.println(lol.getRunning());
+        System.out.println(lol.getTrue());
+        System.out.println("uwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwu");
+        System.out.println(lol.hit());
+        System.out.println(lol.getRunning());
+        System.out.println(lol.getTrue());
+        System.out.println("uaisdgjhadkjfghkajldfhgjkladhgkjadfjkghadkghjkadfhgkljsdhjkfg");
         System.out.println(lol.stand());
+        System.out.println(lol.getRunning());
+        System.out.println(lol.getTrue());
     }
 }
