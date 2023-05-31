@@ -93,7 +93,7 @@ public void startGame() {
     // pool = loader.pool;
     // deck = loader.d;
 
-    cardComp = new FreeplayGUI(loader.dealer, loader.p);
+    cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer());
     cardComp.setBounds(0, 0, 1280, 720); 
     mainFrame.add(cardComp); 
     mainFrame.setVisible(true); 

@@ -41,7 +41,7 @@ public class Card {
         rank = r;
     }
 
-    public void cardPrinter(Graphics2D g1, boolean dealerTurn, boolean faceDown, int cardNum) throws IOException{
+    public void cardPrinter(Graphics2D g1, boolean dealerTurn, boolean faceDown, int cardNum, Card card1) throws IOException{
         BufferedImage cardDeck = ImageIO.read(new File("images/cardSpriteSheet.png")); 
 
         int deckWidth = 950; 
@@ -70,7 +70,7 @@ public class Card {
         }
 
         else {
-            g1.drawImage(cardImages[suit][rank], xPos, yPos, null); 
+            g1.drawImage(cardImages[card1.getSuit()][card1.getRank()], xPos, yPos, null); 
         }
 
     }

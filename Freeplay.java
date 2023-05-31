@@ -1,9 +1,10 @@
 public class Freeplay {
-    public int pool;
-    public Player p;
-    public Deck d;
+    private int pool;
+    private Player p;
+    private Player dealer;
+    private Deck d;
     private int bet;
-    public Player dealer;
+    
     public Freeplay(Player dealer, Player p, int pool, Deck d){
         this.dealer = dealer;
         this.p = p;
@@ -140,6 +141,22 @@ public class Freeplay {
 
             return 0;
         }
+    }
+
+    public Player getDealer(){
+        return dealer;
+    }
+
+    public Player getPlayer(){
+        return p;
+    }
+
+    public Deck getDeck(){
+        return d;
+    }
+
+    public int getPool(){
+        return pool;
     }
 
 }

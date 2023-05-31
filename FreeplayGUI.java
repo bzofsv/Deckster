@@ -53,14 +53,20 @@ public class FreeplayGUI extends JPanel implements MouseListener{
       for (Card card : dealerHand.hand) {
         if (counter1 == 0) {
           if(faceDown) { 
-            card.cardPrinter(g1d, true, true, counter1); 
+            
+            card.cardPrinter(g1d, true, true, counter1, card); 
+            System.out.println("WOW1");
           }
           else {
-            card.cardPrinter(g1d, true, false, counter1); 
+            
+            card.cardPrinter(g1d, true, false, counter1, card); 
+            System.out.println("WOW2");
           }
         }
         else {
-          card.cardPrinter(g1d, true, false, counter1); 
+          
+          card.cardPrinter(g1d, true, false, counter1, card); 
+          System.out.println("WOW3");
       }
 
       counter1++;
@@ -68,9 +74,14 @@ public class FreeplayGUI extends JPanel implements MouseListener{
     catch (IOException e) {}
 
     try {
+      
       int counter2 =0;
       for (Card card : playerHand.hand) { 
-        card.cardPrinter(g1d, false, false, counter2);
+
+        
+
+        card.cardPrinter(g1d, false, false, counter2, card);
+        System.out.println("WOW4");
         counter2++;
       }
     }
