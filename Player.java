@@ -2,11 +2,16 @@ import java.util.*;
 
 public class Player {
     private DecisionTree decisions;
-    Queue<Card> hand;
-    String name;
-    int bet;
-    int chips;
+    private Queue<Card> hand;
+    private String name;
+    private int bet;
+    private int chips;
 
+    /**
+     * Creates a new player
+     * @param name of player
+     * @param chips in the player's hand
+     */
     public Player(String name, int chips) {
         this.name = name;
         this.chips = chips;
@@ -15,6 +20,10 @@ public class Player {
         this.bet = 0;
     }
 
+    /**
+     * initializes a player without any chips
+     * @param name of player
+     */
     public Player(String name) {
         this.name = name;
         hand = new LinkedList<>();
@@ -22,7 +31,12 @@ public class Player {
         this.chips = 0;
     }
 
-    public int makeDecision(String decision) { //returns 0 -> hit, 1 -> stand, -1 -> impossible
+    /**
+     * makes a decision and adds to the player's decision tree
+     * @param decision made
+     * @return the decision in int form, 0 -> hit, 1 -> stand, -1 -> impossible
+     */
+    public int makeDecision(String decision) {
         DecisionTree curr = decisions;
 
         if(curr == null) {
@@ -46,22 +60,43 @@ public class Player {
         return -1; //impossible decision
     }
 
+    /**
+     * adds a card
+     * @param c to be added
+     */
     public void addCard(Card c) {
         hand.add(c);
     }
 
+    /**
+     * getter for the hand
+     * @return queue of the player's card in the drawn order
+     */
     public Queue<Card> hand() {
         return hand;
     }
 
+    /**
+     * places a bet
+     * @param bet to place 
+     */
     public void placeBet(int bet) {
         this.bet = bet;
         chips -= bet;
     }
 
+    /**
+     * getter for the player's current bet
+     * @return current bet
+     */
     public int getBet() {
         return bet;
     }
+
+    /**
+     * value of the cards in the player's hand
+     * @return value of cards
+     */
     public int valOfCards(){
         int cardsval = 0;
         for(int i = 0; i < hand.size(); i++){
@@ -71,9 +106,19 @@ public class Player {
         
 
     }
+
+    /**
+     * sets the player's chip values
+     * @param c chips to give to player
+     */
     public void setChips(int c){
         chips = c;
     }
+
+    /**
+     * gets the number of chips player has
+     * @return number of chips
+     */
     public int getChips(){
         return chips;
     }
