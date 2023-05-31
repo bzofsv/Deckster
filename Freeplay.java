@@ -1,9 +1,9 @@
 public class Freeplay {
-    private int pool;
-    private Player p;
-    private Deck d;
+    public int pool;
+    public Player p;
+    public Deck d;
     private int bet;
-    private Player dealer;
+    public Player dealer;
     public Freeplay(Player dealer, Player p, int pool, Deck d){
         this.dealer = dealer;
         this.p = p;

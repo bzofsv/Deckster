@@ -8,15 +8,18 @@ import java.io.*;
 
 public class Menu extends JComponent implements ActionListener {
 
-    private JButton freeplayBTN = new JButton("freeplay");
-    private JButton ccBTN = new JButton("cc sim");
-    private JButton exitBTN = new JButton("exit");
+    private JButton freeplayBTN = new JButton("Freeplay");
+    private JButton ccBTN = new JButton("CC Sim");
+    private JButton exitBTN = new JButton("Exit");
 
     private static BufferedImage backgroundImage;
     private static BufferedImage decksterImage;
 
+    private JFrame menuFrame;
 
-    public Menu(){
+
+    public Menu(JFrame menuFrame){
+        this.menuFrame = menuFrame;
         freeplayBTN.addActionListener(this);
         ccBTN.addActionListener(this);
         exitBTN.addActionListener(this);
@@ -28,8 +31,7 @@ public class Menu extends JComponent implements ActionListener {
         Graphics2D g1 = (Graphics2D) g0;
 
         try{
-            backgroundImage = ImageIO.read(new File("images/background.png"));
-            decksterImage = ImageIO.read(new File("images/deckster_real.png"));
+            backgroundImage = ImageIO.read(new File("images/menuBackground.png"));
         }
 
         catch(IOException e){
@@ -39,12 +41,11 @@ public class Menu extends JComponent implements ActionListener {
         g1.drawImage(backgroundImage, 0, 0, null);
         g1.setFont(new Font("Bell MT", Font.BOLD, 100));
         g1.setColor(Color.WHITE);
-        g1.drawImage(decksterImage, 445, 10, null);
 
 
-        freeplayBTN.setBounds(400, 300, 150, 80);
-        ccBTN.setBounds(600, 300, 150, 80);  
-        exitBTN.setBounds(500, 400, 150, 80);
+        freeplayBTN.setBounds(425, 300, 125, 60);
+        ccBTN.setBounds(725, 300, 125, 60);  
+        exitBTN.setBounds(575, 450, 125, 60);
 
 
         freeplayBTN.setFont(new Font("Tahoma", Font.ROMAN_BASELINE, 20)); 
@@ -66,11 +67,11 @@ public class Menu extends JComponent implements ActionListener {
         }
 
 
-        else if (selectedBTN==freeplayBTN){
-            // Menu.currentState = Freeplay.STATE.GAME;
-            // Freeplay.menuFrame.dispose(); 
-            // Freeplay.gameRefreshThread.start(); 
-            // Freeplay.gameCheckThread.start();
+        else if (selectedBTN == freeplayBTN){
+            Main.currentState = Main.STATE.FREEPLAY;
+            menuFrame.dispose();
+            // Main.openFreeplay1();
+            Main.openFreeplay2();
         }
 
         else if (selectedBTN==ccBTN){
