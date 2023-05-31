@@ -1,8 +1,12 @@
 import java.util.*;
 
 public class Deck {
-    LinkedList<Card> deck = new LinkedList<>();
 
+    private LinkedList<Card> deck = new LinkedList<>();
+
+    /**
+     * Constructor for deck, creates a full deck of 6 standard card decks
+     */
     public Deck() {
         for(int i = 0; i < 6; i++) {
             LinkedList<Card> temp = createDeck();
@@ -12,6 +16,10 @@ public class Deck {
         }
     }
 
+    /**
+     * creates a standard 52 card deck
+     * @return linked list of the cards in the deck, without shuffling
+     */
     private LinkedList<Card> createDeck() {
         LinkedList<Card> temp = new LinkedList<>();
 
@@ -36,6 +44,9 @@ public class Deck {
         return temp;
     }
 
+    /**
+     * shuffles the cards in the 6 deck set
+     */
     public void shuffle() {
         LinkedList<Card> temp = new LinkedList<>();
 
@@ -47,19 +58,38 @@ public class Deck {
         deck = temp;
     }
 
+    /**
+     * draws a card, reshuffles all cards in the deck if there are not enough cards for a round
+     * @return a drawn card object
+     */
     public Card draw() {
         if(deck.size() <= 4) {
-            deck = createDeck();
+
+            for(int i = 0; i < 6; i++) {
+                LinkedList<Card> temp = createDeck();
+                for(Card c : temp) {
+                    deck.add(c);
+                }
+            }
+            
             shuffle();
         }
 
         return deck.remove();
     }
 
+    /**
+     * adds a card to the deck
+     * @param c card to be added
+     */
     public void add(Card c) {
         deck.add(c);
     }
 
+    /**
+     * gets the number of cards left
+     * @return number of cards left
+     */
     public int cardsLeft() {
         return deck.size();
     }
