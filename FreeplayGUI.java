@@ -50,7 +50,7 @@ public class FreeplayGUI extends JPanel implements MouseListener{
 
     try { 
       int counter1 =0;
-      for (Card card : dealerHand.hand) {
+      for (Card card : dealerHand.hand()) {
         if (counter1 == 0) {
           if(faceDown) { 
             
@@ -76,7 +76,7 @@ public class FreeplayGUI extends JPanel implements MouseListener{
     try {
       
       int counter2 =0;
-      for (Card card : playerHand.hand) { 
+      for (Card card : playerHand.hand()) { 
 
         
 
