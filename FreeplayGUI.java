@@ -72,6 +72,8 @@ public class FreeplayGUI extends JPanel implements MouseListener {
 
       int counter2 = 0;
       for (Card card : playerHand.hand()) {
+        System.out.println("uwu:" + counter2);
+        System.out.println(playerHand.hand());
         card.cardPrinter(g1d, false, false, counter2, card);
         System.out.println("WOW4");
         counter2++;
