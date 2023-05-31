@@ -70,8 +70,8 @@ public class CardCountingSimulator {
 
         if(val > 21){
             pool = 0;
-            while(p.hand.peek() != null){
-                d.add(p.hand.remove());
+            while(p.hand().peek() != null){
+                d.add(p.hand().remove());
             }
 
             return -1;
@@ -96,11 +96,11 @@ public class CardCountingSimulator {
         if(dealerVal > 21){
             p.setChips(p.getChips()+pool);
             pool = 0;
-            while(p.hand.peek() != null){
-                d.add(p.hand.remove());
+            while(p.hand().peek() != null){
+                d.add(p.hand().remove());
             }
-            while(dealer.hand.peek() != null){
-                d.add(dealer.hand.remove());
+            while(dealer.hand().peek() != null){
+                d.add(dealer.hand().remove());
             }
 
             return 1;
@@ -145,11 +145,11 @@ public class CardCountingSimulator {
         p.valOfCards() > dealerVal){
             p.setChips(p.getChips()+pool);
             pool = 0;
-            while(p.hand.peek() != null){
-                d.add(p.hand.remove());
+            while(p.hand().peek() != null){
+                d.add(p.hand().remove());
             }
-            while(dealer.hand.peek() != null){
-                d.add(dealer.hand.remove());
+            while(dealer.hand().peek() != null){
+                d.add(dealer.hand().remove());
             }
 
             return 1;
@@ -158,20 +158,20 @@ public class CardCountingSimulator {
 
         else if(dealerVal > p.valOfCards()){
             pool = 0;
-            while(p.hand.peek()!= null){
-                d.add(p.hand.remove());
+            while(p.hand().peek()!= null){
+                d.add(p.hand().remove());
             }
-            while(dealer.hand.peek()!= null){
-                d.add(dealer.hand.remove());
+            while(dealer.hand().peek()!= null){
+                d.add(dealer.hand().remove());
             }
             return -1;
         }
         else{
-            while(p.hand.peek()!= null){
-                d.add(p.hand.remove());
+            while(p.hand().peek()!= null){
+                d.add(p.hand().remove());
             }
-            while(dealer.hand.peek()!= null){
-                d.add(dealer.hand.remove());
+            while(dealer.hand().peek()!= null){
+                d.add(dealer.hand().remove());
             }
 
             return 0;
