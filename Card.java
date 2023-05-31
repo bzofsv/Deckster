@@ -89,10 +89,10 @@ public class Card {
             yPos = 75;
         }
         else{
-            yPos = 400;
+            yPos = 550;
         }
     
-        xPos = 500 + 75*cardNum; 
+        xPos = 560 + 75*cardNum; 
     
         if (faceDown) { 
             g1.drawImage(backCard, xPos, yPos, null ); 

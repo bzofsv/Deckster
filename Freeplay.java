@@ -159,4 +159,8 @@ public class Freeplay {
         return pool;
     }
 
+    public void setPool(int p){
+        pool = p;
+    }
+
 }

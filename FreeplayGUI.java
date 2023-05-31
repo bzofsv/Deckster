@@ -25,6 +25,10 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     addMouseListener(this);
   }
 
+  public int getBet(){
+    return bet;
+  }
+
   public void paintComponent(Graphics g) {
     Graphics2D g1d = (Graphics2D) g;
 

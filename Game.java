@@ -94,9 +94,17 @@ public void startGame() {
     // deck = loader.d;
 
     cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer());
+    loader.setPool(cardComp.getBet());
     cardComp.setBounds(0, 0, 1280, 720); 
     mainFrame.add(cardComp); 
     mainFrame.setVisible(true); 
+
+
+    btnHit.addActionListener(new ActionListener() { //we add a action listener to the hit button. When the user clicks this button,
+      public void actionPerformed(ActionEvent e) {
+        loader.hit();
+      }
+    });
 
 
 
