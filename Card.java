@@ -77,7 +77,7 @@ public class Card {
         int deckHeight = 392;
 
         BufferedImage[][] cardImages = new BufferedImage[4][13];
-        BufferedImage backCard = ImageIO.read(new File("images/backCard.jpg")); 
+        BufferedImage backCard = ImageIO.read(new File("images/backCard.png")); 
 
         for (int c = 0; c < 4; c++) { 
             for (int r = 0; r < 13; r++) {
@@ -96,10 +96,12 @@ public class Card {
     
         if (faceDown) { 
             g1.drawImage(backCard, xPos, yPos, null ); 
+            System.out.println("we are printing back");
         }
 
         else {
-            g1.drawImage(cardImages[card1.getSuit()][card1.getRank()], xPos, yPos, null); 
+            g1.drawImage(cardImages[card1.getSuit()][card1.getRank()-1], xPos, yPos, null); 
+            System.out.println("we are printing");
         }
 
     }

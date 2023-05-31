@@ -6,89 +6,74 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class FreeplayGUI extends JPanel implements MouseListener{
-
+public class FreeplayGUI extends JPanel implements MouseListener {
 
   public BufferedImage backgroundImage;
   public BufferedImage chipImage;
   Player playerHand;
   Player dealerHand;
   public static int bet;
-  public boolean faceDown = true; 
-  public static boolean betMade = false; 
+  public boolean faceDown = true;
+  public static boolean betMade = false;
   private int bal;
   public static int cBet;
-  
 
-
-
-  public FreeplayGUI(Player dealer, Player player) { 
+  public FreeplayGUI(Player dealer, Player player) {
     dealerHand = dealer;
     playerHand = player;
-    bal = 1000; 
+    bal = 1000;
     addMouseListener(this);
   }
-  
 
   public void paintComponent(Graphics g) {
-    Graphics2D g1d = (Graphics2D) g; 
+    Graphics2D g1d = (Graphics2D) g;
 
     try {
-      backgroundImage = ImageIO.read(new File("images/casinoBackground.png")); 
+      backgroundImage = ImageIO.read(new File("images/casinoBackground.png"));
       chipImage = ImageIO.read(new File("images/chip.png"));
+    } catch (IOException e) {
     }
-    catch(IOException e) {}
-
 
     g1d.drawImage(backgroundImage, 0, 0, null);
     g1d.drawImage(chipImage, 45, 475, null);
-    g1d.setColor(Color.WHITE); 
+    g1d.setColor(Color.WHITE);
     g1d.setFont(new Font("Tahoma", Font.BOLD, 20));
-    g1d.drawString("Balance: " + bal, 55, 650); 
-
-
-
-    try { 
-      int counter1 =0;
-      for (Card card : dealerHand.hand()) {
-        if (counter1 == 0) {
-          if(faceDown) { 
-            
-            card.cardPrinter(g1d, true, true, counter1, card); 
-            System.out.println("WOW1");
-          }
-          else {
-            
-            card.cardPrinter(g1d, true, false, counter1, card); 
-            System.out.println("WOW2");
-          }
-        }
-        else {
-          
-          card.cardPrinter(g1d, true, false, counter1, card); 
-          System.out.println("WOW3");
-      }
-
-      counter1++;
-    }}
-    catch (IOException e) {}
+    g1d.drawString("Balance: " + bal, 55, 650);
 
     try {
-      
-      int counter2 =0;
-      for (Card card : playerHand.hand()) { 
+      int counter1 = 0;
+      for (Card card : dealerHand.hand()) {
+        System.out.println("yay:" + counter1 + " " + faceDown);
+        if (counter1 == 0) {
+          System.out.println("after if");
+          if (faceDown) {
+            System.out.println("WOW1");
+            card.cardPrinter(g1d, true, true, counter1, card);
+          } else {
+            System.out.println("WOW2");
+            card.cardPrinter(g1d, true, false, counter1, card);
+          }
+        } else {
 
-        
+          card.cardPrinter(g1d, true, false, counter1, card);
+          System.out.println("WOW3");
+        }
 
+        counter1++;
+      }
+    } catch (IOException e) {
+    }
+
+    try {
+
+      int counter2 = 0;
+      for (Card card : playerHand.hand()) {
         card.cardPrinter(g1d, false, false, counter2, card);
         System.out.println("WOW4");
         counter2++;
       }
+    } catch (IOException e) {
     }
-    catch (IOException e) {}
-
-    
-
 
   }
 
@@ -102,52 +87,46 @@ public class FreeplayGUI extends JPanel implements MouseListener{
     int mouseX = e.getX();
     int mouseY = e.getY();
 
-    if(mouseX>= 45 && mouseX<=195 && mouseY>=475 && mouseY<=625) {
-      betMade = true; 
-      String[] options = new String[] {"200", "150", "100", "50", "20"};
+    if (mouseX >= 45 && mouseX <= 195 && mouseY >= 475 && mouseY <= 625) {
+      betMade = true;
+      String[] options = new String[] { "200", "150", "100", "50", "20" };
       int response = JOptionPane.showOptionDialog(null, "Please select your betting amount", "Bets",
-              JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-      if(response == 0) {
-        bet = 200; 
-        bal -= 200; 
-      }
-      else if(response == 1) {
+          JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+      if (response == 0) {
+        bet = 200;
+        bal -= 200;
+      } else if (response == 1) {
         bet = 150;
         bal -= 150;
-      }
-      else if(response == 2) {
+      } else if (response == 2) {
         bet = 100;
         bal -= 100;
-      }
-      else if(response == 3) {
+      } else if (response == 3) {
         bet = 50;
         bal -= 50;
-      }
-      else if(response == 4) {
+      } else if (response == 4) {
         bet = 20;
         bal -= 20;
       }
-      // else { 
-      //   bet = 20;
-      //   balance -= 20;
+      // else {
+      // bet = 20;
+      // balance -= 20;
       // }
 
-      Main.newGame.startGame(); 
+      Main.newGame.startGame();
     }
   }
-  public void mouseExited(MouseEvent e) {}
-  public void mouseEntered(MouseEvent e) {}
-  public void mouseReleased(MouseEvent e) {}
-  public void mouseClicked(MouseEvent e) {}
 
+  public void mouseExited(MouseEvent e) {
+  }
 
+  public void mouseEntered(MouseEvent e) {
+  }
 
+  public void mouseReleased(MouseEvent e) {
+  }
 
+  public void mouseClicked(MouseEvent e) {
+  }
 
 }
-
-
-
-
-
-    
