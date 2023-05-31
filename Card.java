@@ -4,7 +4,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D; 
  
-
+/** 
+ * creates card with suit(spades, clubs, heart, diamond)
+ * val - the worth of the card(int from 1-11)
+ * rank - the face of the card(ace - king)
+ */
 public class Card {
     private int suit;
     private int val;
@@ -12,35 +16,60 @@ public class Card {
 
     private int xPos;
     private int yPos;
-    
+    /**
+     * constructor initializes card with val suit and rank
+     * @param val the value of the card(royals are 10, Ace is 11)
+     * @param suit spade, club, heart, or diamond
+     * @param rank the face value of the card - ace,2,3...
+     */
     public Card(int val, int suit, int rank){
         this.val = val;
         this.suit = suit;
         this.rank = rank;
     }
-
+    /**
+     * getter command for the suit
+     * @return the suit of the card
+     */
     public int getSuit(){
         return suit;
     }
+    /**
+     * getter command for the value of the card
+     * @return the value
+     */
     public int getVal(){
         return val;
     }
+    /**
+     * getter method for the rank/facevalue of teh card
+     * @return the facevalue 
+     */
     public int getRank(){
         return rank;
     }
-    
+    /**
+     * set the suit, 1-spade; 2- club; 3 - heart 4; diamond
+     * @param s an integer that determines suit
+     */
     public void setSuit(int s) {
         suit = s;
     }
-
+    /**
+     * set the value of the card from 1-11;
+     * @param v the value of the card
+     */
     public void setVal(int v) {
         val = v;
     }
-
+    /**
+     * set the face value of the card(the rank) 1-13
+     * @param r the rank of the card
+     */
     public void setRank(int r) {
         rank = r;
     }
-
+    //TODO: Krish do Javadoc for this
     public void cardPrinter(Graphics2D g1, boolean dealerTurn, boolean faceDown, int cardNum) throws IOException{
         BufferedImage cardDeck = ImageIO.read(new File("images/cardSpriteSheet.png")); 
 
