@@ -16,7 +16,7 @@ public class Player {
         this.name = name;
         this.chips = chips;
         hand = new LinkedList<>();
-        this.chips = 0;
+        this.chips = 1000;
         this.bet = 0;
     }
 
@@ -112,7 +112,7 @@ public class Player {
      * @param c chips to give to player
      */
     public void setChips(int c){
-        chips = c;
+        chips += c;
     }
 
     /**

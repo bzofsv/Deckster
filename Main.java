@@ -37,6 +37,7 @@ public class Main {
     //     while(true){
     //     newGame.creatorComp.refresh(1000, true);
     // }}
+    
     public static void openFreeplay2() {
       
       freeplayFrame.getContentPane().removeAll();

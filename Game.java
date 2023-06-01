@@ -14,6 +14,7 @@ public class Game {
     private static Player user;
     public boolean over; 
     JFrame mainFrame;
+    private static int balance1 = 1000;
     
     FreeplayGUI creatorComp;
     FreeplayGUI cardComp;
@@ -48,6 +49,10 @@ public class Game {
     //     System.out.println(lol.getTrue());
     // }
 
+    public int getBal1(){
+      return creatorComp.getBal();
+    }
+
     public void formGame() {
         mainFrame.setTitle("Deckster - Freeplay"); 
         mainFrame.setSize(1280, 720);
@@ -78,7 +83,7 @@ public class Game {
           );
 
 
-        creatorComp = new FreeplayGUI(dealer, user);
+        creatorComp = new FreeplayGUI(dealer, user, balance1);
         creatorComp.setBounds(0, 0, 1280, 720);  
         mainFrame.add(creatorComp); 
         mainFrame.setVisible(true); 
@@ -93,16 +98,56 @@ public void startGame() {
     // pool = loader.pool;
     // deck = loader.d;
 
-    cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer());
+    cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer(), balance1);
     loader.setPool(cardComp.getBet());
     cardComp.setBounds(0, 0, 1280, 720); 
     mainFrame.add(cardComp); 
     mainFrame.setVisible(true); 
 
 
-    btnHit.addActionListener(new ActionListener() { //we add a action listener to the hit button. When the user clicks this button,
+    btnHit.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
-        loader.hit();
+        int returner = loader.hit();
+        cardComp.repaint();
+
+
+
+        if (returner == -1){
+          JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
+        }
+
+        else if (returner ==1){
+          JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
+        }
+
+        
+
+
+
+      }
+    });
+    
+
+
+    btnStand.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent e) {
+        int returner = loader.stand();
+        cardComp.repaint();
+
+
+        if (returner == -1){
+          JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
+          
+        }
+
+        else if (returner ==1){
+          JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
+        }
+
+        else if (returner == 0){
+          cardComp.repaint();
+        }
+
       }
     });
 

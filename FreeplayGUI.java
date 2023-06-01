@@ -18,13 +18,20 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   private int bal;
   public static int cBet;
 
-  public FreeplayGUI(Player dealer, Player player) {
+  public FreeplayGUI(Player dealer, Player player, int balance) {
     dealerHand = dealer;
     playerHand = player;
-    bal = 1000;
+    bal = balance;
     addMouseListener(this);
   }
 
+  public void setBal(int winLose){
+    bal += winLose;
+  }
+
+  public int getBal(){
+    return bal;
+  }
   public int getBet(){
     return bet;
   }
@@ -89,6 +96,10 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     this.repaint();
   }
 
+  public void repainter(){
+    this.repaint();
+  }
+
   public void mousePressed(MouseEvent e) {
     int mouseX = e.getX();
     int mouseY = e.getY();
@@ -101,18 +112,23 @@ public class FreeplayGUI extends JPanel implements MouseListener {
       if (response == 0) {
         bet = 200;
         bal -= 200;
+        playerHand.placeBet(200);
       } else if (response == 1) {
         bet = 150;
         bal -= 150;
+        playerHand.placeBet(150);
       } else if (response == 2) {
         bet = 100;
         bal -= 100;
+        playerHand.placeBet(100);
       } else if (response == 3) {
         bet = 50;
         bal -= 50;
+        playerHand.placeBet(50);
       } else if (response == 4) {
         bet = 20;
         bal -= 20;
+        playerHand.placeBet(20);
       }
       // else {
       // bet = 20;
