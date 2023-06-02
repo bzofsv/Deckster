@@ -6,6 +6,8 @@ public class Player {
     private String name;
     private int bet;
     private int chips;
+    private int runningCount;
+    private double trueCount;
 
     /**
      * Creates a new player
@@ -121,5 +123,21 @@ public class Player {
      */
     public int getChips(){
         return chips;
+    }
+
+    public int getRunningCount() {
+        return runningCount;
+    }
+
+    public double getTrueCount() {
+        return trueCount;
+    }
+
+    public void setRunningCount(int running) {
+        runningCount = running;
+    }
+
+    public void setTrueCount(double trueCount) {
+        this.trueCount = trueCount;
     }
 }
