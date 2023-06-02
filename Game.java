@@ -107,6 +107,7 @@ public void startGame() {
 
     btnHit.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
+        cardComp.repaint();
         faceDown = true;
         int returner = loader.hit();
 
@@ -114,11 +115,15 @@ public void startGame() {
 
         if (returner == -1){
           JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
+          // creatorComp.repaint();
+          cardComp.repaint();
         }
 
         else if (returner ==1){
           JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
-          
+          // creatorComp.repaint();
+          cardComp.repaint();
+
         }
 
         
@@ -132,6 +137,7 @@ public void startGame() {
 
     btnStand.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
+        cardComp.repaint();
         faceDown = false;
         int returner = loader.stand();
         // cardComp.repaint(); // make dealer show cards.
@@ -140,17 +146,17 @@ public void startGame() {
         if (returner == -1){
           cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
+          // creatorComp.repaint();
           
         }
 
         else if (returner ==1){
           cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
+          // creatorComp.repaint();
         }
 
-        else if (returner == 0){
-          cardComp.repaint();
-        }
+        
 
       }
     });
