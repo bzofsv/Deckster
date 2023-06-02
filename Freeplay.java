@@ -162,6 +162,10 @@ public class Freeplay {
         pool = p;
     }
 
+    /**
+     * clears the hand of a player/dealer
+     * @param 0 -> clears player hand, 1 -> clears dealer hand
+     */
     public void clearHand(int playerNum) { 
         if(playerNum == 0) {
             while(p.hand().peek()!= null){
