@@ -119,12 +119,12 @@ public void startGame() {
           cardComp.repaint();
         }
 
-        else if (returner ==1){
-          JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
-          // creatorComp.repaint();
-          cardComp.repaint();
+        // else if (returner ==1){
+        //   JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
+        //   // creatorComp.repaint();
+        //   cardComp.repaint();
 
-        }
+        // }
 
         
 
@@ -145,14 +145,14 @@ public void startGame() {
 
         if (returner == -1){
           cardComp.repaint();
-          JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
+          JOptionPane.showMessageDialog(mainFrame, "Dealer has higher card value. Dealer Wins.");
           // creatorComp.repaint();
           
         }
 
         else if (returner ==1){
           cardComp.repaint();
-          JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
+          JOptionPane.showMessageDialog(mainFrame, "Dealer has lower card value or has busted. Player Wins.");
           // creatorComp.repaint();
         }
 
