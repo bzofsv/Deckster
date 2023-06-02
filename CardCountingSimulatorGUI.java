@@ -6,7 +6,9 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class FreeplayGUI extends JPanel implements MouseListener {
+
+public class CardCountingSimulatorGUI extends JPanel implements MouseListener {
+
 
   public BufferedImage backgroundImage;
   public BufferedImage chipImage;
@@ -19,11 +21,11 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   public static int cBet;
 
   /**
-   * constructor to load the GUI for freeplay
+   * constructor to load GUI for ccsim
    * @param dealer of the game
    * @param player of the game
    */
-  public FreeplayGUI(Player dealer, Player player) {
+  public CardCountingSimulatorGUI(Player dealer, Player player) {
     dealerHand = dealer;
     playerHand = player;
     bal = 1000;
@@ -39,7 +41,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   }
 
   /**
-   * gets the balance
+   * getter for the balance
    * @return balance
    */
   public int getBal(){
@@ -47,7 +49,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   }
 
   /**
-   * gets current bet
+   * getter for current bet
    * @return current bet
    */
   public int getBet(){
@@ -55,7 +57,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   }
 
   /**
-   * paint the freeplay menu
+   * paints the board
    * @param g graphics object
    */
   public void paintComponent(Graphics g) {
@@ -72,7 +74,10 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     g1d.setColor(Color.WHITE);
     g1d.setFont(new Font("Tahoma", Font.BOLD, 20));
     g1d.drawString("Balance: " + playerHand.getChips(), 55, 650);
-    
+    g1d.setColor(Color.GREEN);
+    g1d.drawString("True Count: " + playerHand.getTrueCount(), 1000, 30);
+    g1d.drawString("Running Count: " + playerHand.getRunningCount(), 1000, 70);
+
 
     try {
       int counter1 = 0;
@@ -115,8 +120,8 @@ public class FreeplayGUI extends JPanel implements MouseListener {
 
   /**
    * refreshes the GUI
-   * @param bal of the game
-   * @param faceDown whether or not card is face up or face down
+   * @param bal balance of the board
+   * @param faceDown whether or not the card is facedown or not
    */
   public void refresher(int bal, boolean faceDown) {
     this.bal = bal;
@@ -125,7 +130,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   }
 
   /**
-   * repaint cards
+   * repaints the board
    */
   public void repainter(){
     this.repaint();
@@ -170,11 +175,10 @@ public class FreeplayGUI extends JPanel implements MouseListener {
       // balance -= 20;
       // }
 
-      Main.newGame.startGame();
+      Main.newCCGame.startGame();
     }
   }
 
-  
   public void mouseExited(MouseEvent e) {
   }
 
@@ -188,3 +192,5 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   }
 
 }
+
+

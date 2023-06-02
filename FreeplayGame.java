@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.*;
 
 
-public class Game {
+public class FreeplayGame {
     public boolean faceDown;
     private static Deck deck;
     private static int pool;
@@ -14,6 +14,7 @@ public class Game {
     private static Player user;
     public boolean over; 
     JFrame mainFrame;
+    private static int balance1 = 1000;
     
     FreeplayGUI creatorComp;
     FreeplayGUI cardComp;
@@ -22,7 +23,11 @@ public class Game {
     JButton btnStand;
     JButton btnExit;
 
-    public Game(JFrame frame1) {
+    /**
+     * loads freeplay game
+     * @param frame1 jframe
+     */
+    public FreeplayGame(JFrame frame1) {
         mainFrame = frame1;
         deck = new Deck();
         deck.shuffle(); //we randomize the deck.
@@ -31,23 +36,18 @@ public class Game {
         faceDown = true;
         over = false;
       }
+    
+    /**
+     * find the balance
+     * @return balance
+     */
+    public int getBal1(){
+      return creatorComp.getBal();
+    }
 
-    // public static void main(String[] args) {
-
-    //     CardCountingSimulator lol = new CardCountingSimulator(dealer, user, 0, d);
-    //     System.out.println(lol.hit());
-    //     System.out.println(lol.getRunning());
-    //     System.out.println(lol.getTrue());
-    //     System.out.println("uwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwu");
-    //     System.out.println(lol.hit());
-    //     System.out.println(lol.getRunning());
-    //     System.out.println(lol.getTrue());
-    //     System.out.println("uaisdgjhadkjfghkajldfhgjkladhgkjadfjkghadkghjkadfhgkljsdhjkfg");
-    //     System.out.println(lol.stand());
-    //     System.out.println(lol.getRunning());
-    //     System.out.println(lol.getTrue());
-    // }
-
+    /**
+     * forms a game
+     */
     public void formGame() {
         mainFrame.setTitle("Deckster - Freeplay"); 
         mainFrame.setSize(1280, 720);
@@ -84,14 +84,12 @@ public class Game {
         mainFrame.setVisible(true); 
 }
 
+/**
+ * starts a game
+ */
 public void startGame() { 
 
     Freeplay loader = new Freeplay(dealer, user, pool, deck);
-
-    // dealer = loader.dealer;
-    // user = loader.p;
-    // pool = loader.pool;
-    // deck = loader.d;
 
     cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer());
     loader.setPool(cardComp.getBet());
@@ -100,15 +98,51 @@ public void startGame() {
     mainFrame.setVisible(true); 
 
 
-    btnHit.addActionListener(new ActionListener() { //we add a action listener to the hit button. When the user clicks this button,
+    btnHit.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
-        loader.hit();
+        cardComp.repaint();
+        faceDown = true;
+        int returner = loader.hit();
+
+
+
+        if (returner == -1){
+          cardComp.repaint();
+          JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
+        }
       }
     });
+    
+    btnStand.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent e) {
+        cardComp.repaint();
+        creatorComp.faceDown = false;
+        cardComp.faceDown = false;
+        cardComp.repaint();
+        int returner = loader.stand();
+
+        if (returner == -1){
+          cardComp.repaint();
+          JOptionPane.showMessageDialog(mainFrame, "Dealer has higher card value. Dealer Wins.");
+          
+        }
+
+        else if (returner ==1){
+          cardComp.repaint();
+          JOptionPane.showMessageDialog(mainFrame, "Dealer has lower card value or has busted. Player Wins.");
+        }
+
+        
+
+      }
+    });
+    
 
 
 
 
 }
+
+
 
 }
