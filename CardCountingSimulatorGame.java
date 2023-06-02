@@ -24,6 +24,10 @@ public class CardCountingSimulatorGame {
     JButton btnStand;
     JButton btnExit;
 
+    /**
+     * loads freeplay game
+     * @param frame1 jframe
+     */
     public CardCountingSimulatorGame(JFrame frame1) {
         mainFrame = frame1;
         deck = new Deck();
@@ -33,27 +37,18 @@ public class CardCountingSimulatorGame {
         faceDown = true;
         over = false;
       }
-
-    // public static void main(String[] args) {
-
-    //     CardCountingSimulator lol = new CardCountingSimulator(dealer, user, 0, d);
-    //     System.out.println(lol.hit());
-    //     System.out.println(lol.getRunning());
-    //     System.out.println(lol.getTrue());
-    //     System.out.println("uwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwuwu");
-    //     System.out.println(lol.hit());
-    //     System.out.println(lol.getRunning());
-    //     System.out.println(lol.getTrue());
-    //     System.out.println("uaisdgjhadkjfghkajldfhgjkladhgkjadfjkghadkghjkadfhgkljsdhjkfg");
-    //     System.out.println(lol.stand());
-    //     System.out.println(lol.getRunning());
-    //     System.out.println(lol.getTrue());
-    // }
-
+    
+    /**
+     * find the balance
+     * @return balance
+     */
     public int getBal1(){
       return creatorComp.getBal();
     }
 
+    /**
+     * forms the game
+     */
     public void formGame() {
         mainFrame.setTitle("Deckster - Card Counting Simulator"); 
         mainFrame.setSize(1280, 720);
@@ -90,14 +85,12 @@ public class CardCountingSimulatorGame {
         mainFrame.setVisible(true); 
 }
 
+/**
+ * starts the game
+ */
 public void startGame() { 
 
     CardCountingSimulator loader = new CardCountingSimulator(dealer, user, pool, deck);
-
-    // dealer = loader.dealer;
-    // user = loader.p;
-    // pool = loader.pool;
-    // deck = loader.d;
 
     cardComp = new CardCountingSimulatorGUI(loader.getDealer(), loader.getPlayer());
     loader.setPool(cardComp.getBet());
@@ -117,19 +110,7 @@ public void startGame() {
         if (returner == -1){
           cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
-          // creatorComp.repaint();
         }
-
-        // else if (returner ==1){
-        //   JOptionPane.showMessageDialog(mainFrame, "Dealer has busted. Player Wins.");
-        //   // creatorComp.repaint();
-        //   cardComp.repaint();
-
-        // }
-
-        
-
-
 
       }
     });
@@ -143,20 +124,16 @@ public void startGame() {
         cardComp.faceDown = false;
         cardComp.repaint();
         int returner = loader.stand();
-        // cardComp.repaint(); // make dealer show cards.
-        //check dealerTurn variable
 
         if (returner == -1){
           cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "Dealer has higher card value. Dealer Wins.");
-          // creatorComp.repaint();
           
         }
 
         else if (returner ==1){
           cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "Dealer has lower card value or has busted. Player Wins.");
-          // creatorComp.repaint();
         }
 
         

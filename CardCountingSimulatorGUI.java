@@ -20,6 +20,11 @@ public class CardCountingSimulatorGUI extends JPanel implements MouseListener {
   private int bal;
   public static int cBet;
 
+  /**
+   * constructor to load GUI for ccsim
+   * @param dealer of the game
+   * @param player of the game
+   */
   public CardCountingSimulatorGUI(Player dealer, Player player) {
     dealerHand = dealer;
     playerHand = player;
@@ -27,17 +32,34 @@ public class CardCountingSimulatorGUI extends JPanel implements MouseListener {
     addMouseListener(this);
   }
 
+  /**
+   * adds winLose to bal
+   * @param winLose to be added to bal
+   */
   public void setBal(int winLose){
     bal += winLose;
   }
 
+  /**
+   * getter for the balance
+   * @return balance
+   */
   public int getBal(){
     return bal;
   }
+
+  /**
+   * getter for current bet
+   * @return current bet
+   */
   public int getBet(){
     return bet;
   }
 
+  /**
+   * paints the board
+   * @param g graphics object
+   */
   public void paintComponent(Graphics g) {
     Graphics2D g1d = (Graphics2D) g;
 
@@ -96,16 +118,28 @@ public class CardCountingSimulatorGUI extends JPanel implements MouseListener {
 
   }
 
+  /**
+   * refreshes the GUI
+   * @param bal balance of the board
+   * @param faceDown whether or not the card is facedown or not
+   */
   public void refresher(int bal, boolean faceDown) {
     this.bal = bal;
     this.faceDown = faceDown;
     this.repaint();
   }
 
+  /**
+   * repaints the board
+   */
   public void repainter(){
     this.repaint();
   }
 
+  /**
+   * detects a mouse press, and checks if it falls into the region of the chip to place bet
+   * @param e mouse click event
+   */
   public void mousePressed(MouseEvent e) {
     int mouseX = e.getX();
     int mouseY = e.getY();

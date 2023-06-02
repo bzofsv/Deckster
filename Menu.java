@@ -18,6 +18,10 @@ public class Menu extends JComponent implements ActionListener {
     private JFrame menuFrame;
 
 
+    /**
+     * constructor for menu
+     * @param menuFrame frame of the menu
+     */
     public Menu(JFrame menuFrame){
         this.menuFrame = menuFrame;
         freeplayBTN.addActionListener(this);
@@ -25,6 +29,10 @@ public class Menu extends JComponent implements ActionListener {
         exitBTN.addActionListener(this);
     }
 
+    /**
+     * paints the board
+     * @param g0 graphics object
+     */
     public void paintComponent(Graphics g0){
         
 
@@ -58,6 +66,10 @@ public class Menu extends JComponent implements ActionListener {
 
     }
 
+    /**
+     * checks for a performed action
+     * @param x action event
+     */
     public void actionPerformed(ActionEvent x){
 
         JButton selectedBTN = (JButton)x.getSource();

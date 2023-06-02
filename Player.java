@@ -125,18 +125,34 @@ public class Player {
         return chips;
     }
 
+    /**
+     * gets the running count
+     * @return running count
+     */
     public int getRunningCount() {
         return runningCount;
     }
 
+    /**
+     * gets the true count
+     * @return true count
+     */
     public double getTrueCount() {
         return (double) Math.round(trueCount * 100.0) / 100.0;
     }
 
+    /**
+     * sets the running count
+     * @param running new running count
+     */
     public void setRunningCount(int running) {
         this.runningCount = running;
     }
 
+    /**
+     * sets the true count
+     * @param trueCount new true count
+     */
     public void setTrueCount(double trueCount) {
         this.trueCount = trueCount;
     }

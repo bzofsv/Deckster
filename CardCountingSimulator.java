@@ -9,6 +9,13 @@ public class CardCountingSimulator {
 
     private static final int[] KEY = {-1, 1, 1, 1, 1, 1, 0, 0, 0, -1, -1, -1, -1};
 
+    /**
+     * constructor for ccsim 
+     * @param dealer of the game
+     * @param p player of game
+     * @param pool up for betting (twice of bet)
+     * @param d deck of cards
+     */
     public CardCountingSimulator (Player dealer, Player p, int pool, Deck d){
         this.dealer = dealer;
         this.p = p;
@@ -35,18 +42,35 @@ public class CardCountingSimulator {
         }
     }
 
+    /**
+     * checks the count value for the card
+     * @param c card to be checked
+     * @return count value for this card
+     */
     public int countChecker(Card c) {
         return KEY[c.getRank() - 1];
     }
 
+    /**
+     * getter for running count
+     * @return running count
+     */
     public int getRunning() {
         return runningCount;
     }
 
+    /**
+     * getter for true count
+     * @return true count
+     */
     public double getTrue() {
         return trueCount;
     }
 
+    /**
+     * draw a card from deck and update counts
+     * @return drawn Card
+     */
     private Card drawCard() {
         Card c = d.draw();
         runningCount += countChecker(c);
@@ -155,7 +179,7 @@ public class CardCountingSimulator {
         }
     }
 
-        /**
+    /**
      * getter for dealer
      * @return dealer
      */

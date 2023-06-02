@@ -16,12 +16,20 @@ public class Main {
 
     public static STATE currentState = STATE.MENU; 
 
+    /**
+     * main method
+     * @param args main's args
+     * @throws InterruptedException in case of menu close or unexpected error
+     */
     public static void main(String[] args) throws InterruptedException {
         if(currentState == STATE.MENU) {
           oM(); 
         }
       }
 
+      /**
+       * open menu GUI
+       */
       public static void oM(){
         menuFrame.setTitle("Deckster"); 
         menuFrame.setSize(1280, 720);
@@ -34,16 +42,18 @@ public class Main {
         menuFrame.setVisible(true); 
       }
 
-    //   public static void openFreeplay1() {
-    //     while(true){
-    //     newGame.creatorComp.refresh(1000, true);
-    // }}
-    
+    /**
+     * opens CCSim
+     */
     public static void openCCSim2(){
       ccFrame.getContentPane().removeAll();
       newCCGame = new CardCountingSimulatorGame(ccFrame);
       newCCGame.formGame();
     }
+
+    /**
+     * opens Freeplay
+     */
     public static void openFreeplay2() {
       
       freeplayFrame.getContentPane().removeAll();

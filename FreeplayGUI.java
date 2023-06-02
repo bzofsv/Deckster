@@ -30,17 +30,34 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     addMouseListener(this);
   }
 
+  /**
+   * adds winLose to bal
+   * @param winLose to be added to bal
+   */
   public void setBal(int winLose){
     bal += winLose;
   }
 
+  /**
+   * gets the balance
+   * @return balance
+   */
   public int getBal(){
     return bal;
   }
+
+  /**
+   * gets current bet
+   * @return current bet
+   */
   public int getBet(){
     return bet;
   }
 
+  /**
+   * paint the freeplay menu
+   * @param g graphics object
+   */
   public void paintComponent(Graphics g) {
     Graphics2D g1d = (Graphics2D) g;
 
@@ -157,9 +174,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     }
   }
 
-  /**
-   * 
-   */
+  
   public void mouseExited(MouseEvent e) {
   }
 
