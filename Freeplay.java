@@ -1,10 +1,18 @@
 public class Freeplay {
+    
     private int pool;
     private Player p;
     private Player dealer;
     private Deck d;
     private int bet;
     
+    /**
+     * constructor for freeplay 
+     * @param dealer of the game
+     * @param p player of game
+     * @param pool up for betting (twice of bet)
+     * @param d deck of cards
+     */
     public Freeplay(Player dealer, Player p, int pool, Deck d){
         this.dealer = dealer;
         this.p = p;
@@ -16,7 +24,12 @@ public class Freeplay {
         dealer.addCard(d.draw());
         dealer.addCard(d.draw());
     }
-    public int hit(){ //return of -1 -> dealer, 0 -> nothing, 1 -> player for who won
+
+    /**
+     * "hit" command for blackjack
+     * @return an int to determine who won -1 -> dealer, 0 -> nothing, 1 -> player for who won
+     */
+    public int hit(){
 
         int initial = p.valOfCards();
         System.out.println(initial);
@@ -40,49 +53,17 @@ public class Freeplay {
             return -1;
         }
 
-        // int dealerInitial = 0;
-        // int dealerVal = 0;
-
-        // if(dealer.valOfCards()<=16){
-        //     dealerInitial = dealer.valOfCards();
-        //     dealer.addCard(d.draw());
-        //     dealer.makeDecision("hit");
-        //     System.out.println("dealer hit");
-        //     dealerVal = dealer.valOfCards();
-
-        //     if(dealerVal - dealerInitial == 11 && dealerVal > 21) dealerVal -= 10;
-        //     System.out.println(val);
-
-        // } else {
-        //     dealer.makeDecision("stand");
-        //     System.out.println("dealer stand");
-        //     dealerVal = dealer.valOfCards();
-        //     System.out.println(dealerVal);
-        // }
-
-        // if(val > 21){
-        //     p.setChips(p.getChips()+pool);
-        //     pool = 0;
-        //     while(p.hand().peek() != null){
-        //         d.add(p.hand().remove());
-        //     }
-        //     while(dealer.hand().peek() != null){
-        //         d.add(dealer.hand().remove());
-        //     }
-
-        //     return 1;
-            
-        // }
-
-       // if(dealerVal == val && val == 21) return 0;
         else if(val == 21) return 1;
-        //else if(dealerVal == 21) return -1;
 
         return 0;
 
     }
 
-    public int stand(){ //returns -1 -> dealer wins, 0 -> tie, 1 -> player wins
+    /**
+     * "stand" command for blackjack
+     * @return an int to determine who wins -1 -> dealer wins, 0 -> tie, 1 -> player wins
+     */
+    public int stand(){
         p.makeDecision("stand");
         int dealerVal = 0;
         int dealerInitial = 0;
@@ -142,22 +123,42 @@ public class Freeplay {
         }
     }
 
+    /**
+     * getter for dealer
+     * @return dealer
+     */
     public Player getDealer(){
         return dealer;
     }
 
+    /**
+     * getter for player
+     * @return player
+     */
     public Player getPlayer(){
         return p;
     }
 
+    /**
+     * getter for the deck 
+     * @return deck
+     */
     public Deck getDeck(){
         return d;
     }
 
+    /**
+     * getter for the pool
+     * @return current pool
+     */
     public int getPool(){
         return pool;
     }
 
+    /**
+     * sets the pool
+     * @param p new pool
+     */
     public void setPool(int p){
         pool = p;
     }

@@ -18,6 +18,11 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   private int bal;
   public static int cBet;
 
+  /**
+   * constructor to load the GUI for freeplay
+   * @param dealer of the game
+   * @param player of the game
+   */
   public FreeplayGUI(Player dealer, Player player) {
     dealerHand = dealer;
     playerHand = player;
@@ -90,16 +95,28 @@ public class FreeplayGUI extends JPanel implements MouseListener {
 
   }
 
+  /**
+   * refreshes the GUI
+   * @param bal of the game
+   * @param faceDown whether or not card is face up or face down
+   */
   public void refresher(int bal, boolean faceDown) {
     this.bal = bal;
     this.faceDown = faceDown;
     this.repaint();
   }
 
+  /**
+   * repaint cards
+   */
   public void repainter(){
     this.repaint();
   }
 
+  /**
+   * detects a mouse press, and checks if it falls into the region of the chip to place bet
+   * @param e mouse click event
+   */
   public void mousePressed(MouseEvent e) {
     int mouseX = e.getX();
     int mouseY = e.getY();
@@ -139,6 +156,9 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     }
   }
 
+  /**
+   * 
+   */
   public void mouseExited(MouseEvent e) {
   }
 
