@@ -83,7 +83,7 @@ public class Game {
           );
 
 
-        creatorComp = new FreeplayGUI(dealer, user, balance1);
+        creatorComp = new FreeplayGUI(dealer, user);
         creatorComp.setBounds(0, 0, 1280, 720);  
         mainFrame.add(creatorComp); 
         mainFrame.setVisible(true); 
@@ -98,7 +98,7 @@ public void startGame() {
     // pool = loader.pool;
     // deck = loader.d;
 
-    cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer(), balance1);
+    cardComp = new FreeplayGUI(loader.getDealer(), loader.getPlayer());
     loader.setPool(cardComp.getBet());
     cardComp.setBounds(0, 0, 1280, 720); 
     mainFrame.add(cardComp); 
@@ -108,7 +108,6 @@ public void startGame() {
     btnHit.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
         faceDown = true;
-        cardComp.refresher(balance1, faceDown);
         int returner = loader.hit();
 
 
@@ -134,7 +133,6 @@ public void startGame() {
     btnStand.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
         faceDown = false;
-        cardComp.refresher(balance1, faceDown);
         int returner = loader.stand();
         // cardComp.repaint(); // make dealer show cards.
         //check dealerTurn variable
@@ -156,10 +154,13 @@ public void startGame() {
 
       }
     });
+    
 
 
 
 
 }
+
+
 
 }
