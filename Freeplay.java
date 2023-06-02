@@ -108,7 +108,7 @@ public class Freeplay {
 
         if(dealerVal > 21 ||
         p.valOfCards() > dealerVal){
-            p.setChips(p.getChips()+pool);
+            p.setChips(p.getChips() + 2 * pool);
             pool = 0;
             while(p.hand().peek() != null){
                 d.add(p.hand().remove());
