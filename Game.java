@@ -114,9 +114,9 @@ public void startGame() {
 
 
         if (returner == -1){
+          cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
           // creatorComp.repaint();
-          cardComp.repaint();
         }
 
         // else if (returner ==1){
@@ -138,7 +138,9 @@ public void startGame() {
     btnStand.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
         cardComp.repaint();
-        faceDown = false;
+        creatorComp.faceDown = false;
+        cardComp.faceDown = false;
+        cardComp.repaint();
         int returner = loader.stand();
         // cardComp.repaint(); // make dealer show cards.
         //check dealerTurn variable
