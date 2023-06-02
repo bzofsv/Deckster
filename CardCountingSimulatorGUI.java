@@ -141,7 +141,7 @@ public class CardCountingSimulatorGUI extends JPanel implements MouseListener {
       // balance -= 20;
       // }
 
-      Main.newGame.startGame();
+      Main.newCCGame.startGame();
     }
   }
 
