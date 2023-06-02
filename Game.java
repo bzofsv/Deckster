@@ -138,7 +138,9 @@ public void startGame() {
     btnStand.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent e) {
         cardComp.repaint();
-        faceDown = false;
+        creatorComp.faceDown = false;
+        cardComp.faceDown = false;
+        cardComp.repaint();
         int returner = loader.stand();
         // cardComp.repaint(); // make dealer show cards.
         //check dealerTurn variable
