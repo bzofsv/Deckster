@@ -112,7 +112,7 @@ public class Player {
      * @param c chips to give to player
      */
     public void setChips(int c){
-        chips += c;
+        chips = c;
     }
 
     /**
