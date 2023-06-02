@@ -114,9 +114,9 @@ public void startGame() {
 
 
         if (returner == -1){
+          cardComp.repaint();
           JOptionPane.showMessageDialog(mainFrame, "You have busted. Dealer Wins.");
           // creatorComp.repaint();
-          cardComp.repaint();
         }
 
         // else if (returner ==1){
