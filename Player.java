@@ -134,7 +134,7 @@ public class Player {
     }
 
     public void setRunningCount(int running) {
-        runningCount = running;
+        this.runningCount = running;
     }
 
     public void setTrueCount(double trueCount) {

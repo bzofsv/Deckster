@@ -53,6 +53,7 @@ public class CardCountingSimulator {
         p.setRunningCount(runningCount);
         trueCount = ((double) runningCount) / (((double) d.cardsLeft()) / 52.0);
         p.setTrueCount(trueCount);
+        System.out.println("THis is true count: " + trueCount + " this is running: " + runningCount);
         return c;
     }
 
@@ -154,4 +155,60 @@ public class CardCountingSimulator {
         }
     }
 
+        /**
+     * getter for dealer
+     * @return dealer
+     */
+    public Player getDealer(){
+        return dealer;
+    }
+
+    /**
+     * getter for player
+     * @return player
+     */
+    public Player getPlayer(){
+        return p;
+    }
+
+    /**
+     * getter for the deck 
+     * @return deck
+     */
+    public Deck getDeck(){
+        return d;
+    }
+
+    /**
+     * getter for the pool
+     * @return current pool
+     */
+    public int getPool(){
+        return pool;
+    }
+
+    /**
+     * sets the pool
+     * @param p new pool
+     */
+    public void setPool(int p){
+        pool = p;
+    }
+
+    /**
+     * clears the hand of a player/dealer
+     * @param 0 -> clears player hand, 1 -> clears dealer hand
+     */
+    public void clearHand(int playerNum) { 
+        if(playerNum == 0) {
+            while(p.hand().peek()!= null){
+                d.add(p.hand().remove());
+            }
+        }
+        else if(playerNum == 1) {
+            while(dealer.hand().peek()!= null){
+                d.add(dealer.hand().remove());
+            }
+        }
+    }
 }

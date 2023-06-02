@@ -92,7 +92,7 @@ public class CardCountingSimulatorGame {
 
 public void startGame() { 
 
-    Freeplay loader = new Freeplay(dealer, user, pool, deck);
+    CardCountingSimulator loader = new CardCountingSimulator(dealer, user, pool, deck);
 
     // dealer = loader.dealer;
     // user = loader.p;
