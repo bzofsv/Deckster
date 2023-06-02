@@ -130,7 +130,7 @@ public class Player {
     }
 
     public double getTrueCount() {
-        return trueCount;
+        return (double) Math.round(trueCount * 100.0) / 100.0;
     }
 
     public void setRunningCount(int running) {

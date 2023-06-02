@@ -52,7 +52,6 @@ public class Freeplay {
 
             return -1;
         }
-
         else if(val == 21) return 1;
 
         return 0;

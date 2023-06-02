@@ -70,6 +70,15 @@ public class Card {
         rank = r;
     }
 
+    /**
+     * prints the cards from a cardSprite sheet
+     * @param g1 graphics object
+     * @param dealerTurn whether or not it is the dealer's turn
+     * @param faceDown whether or not card is facedown
+     * @param cardNum which card it is
+     * @param card1 card object itself
+     * @throws IOException in case of improper file inputs
+     */
     public void cardPrinter(Graphics2D g1, boolean dealerTurn, boolean faceDown, int cardNum, Card card1) throws IOException{
         BufferedImage cardDeck = ImageIO.read(new File("images/cardSpriteSheet.png")); 
 
