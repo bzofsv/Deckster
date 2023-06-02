@@ -21,7 +21,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
   public FreeplayGUI(Player dealer, Player player, int balance) {
     dealerHand = dealer;
     playerHand = player;
-    bal = balance;
+    bal = 1000;
     addMouseListener(this);
   }
 
