@@ -49,7 +49,7 @@ public class FreeplayGUI extends JPanel implements MouseListener {
     g1d.drawImage(chipImage, 45, 475, null);
     g1d.setColor(Color.WHITE);
     g1d.setFont(new Font("Tahoma", Font.BOLD, 20));
-    g1d.drawString("Balance: " + bal, 55, 650);
+    g1d.drawString("Balance: " + playerHand.getChips(), 55, 650);
 
     try {
       int counter1 = 0;

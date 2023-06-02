@@ -28,7 +28,7 @@ public class Player {
         this.name = name;
         hand = new LinkedList<>();
         this.bet = 0;
-        this.chips = 0;
+        this.chips = 1000;
     }
 
     /**
