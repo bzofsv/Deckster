@@ -161,6 +161,19 @@ public class Freeplay {
     public void setPool(int p){
         pool = p;
     }
+
+    public void clearHand(int playerNum) { 
+        if(playerNum == 0) {
+            while(p.hand().peek()!= null){
+                d.add(p.hand().remove());
+            }
+        }
+        else if(playerNum == 1) {
+            while(dealer.hand().peek()!= null){
+                d.add(dealer.hand().remove());
+            }
+        }
+    }
     
 
 }
