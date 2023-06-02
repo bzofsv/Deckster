@@ -75,14 +75,13 @@ public class Menu extends JComponent implements ActionListener {
         }
 
         else if (selectedBTN==ccBTN){
-            // CardCountingSimulator.currentState = CardCountingSimulator.STATE.GAME;
-            // CardCountingSimulator.menuFrame.dispose(); 
-            // CardCountingSimulator.gameRefreshThread.start(); 
-            // CardCountingSimulator.gameCheckThread.start();
-        }
+            Main.currentState = Main.STATE.CC;
+            menuFrame.dispose();
+            // Main.openFreeplay1();
+            Main.openCCSim2();
     }
     
-}
+}}
 
     
 
