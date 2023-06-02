@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.*;
 
 
-public class Game {
+public class FreeplayGame {
     public boolean faceDown;
     private static Deck deck;
     private static int pool;
@@ -23,7 +23,7 @@ public class Game {
     JButton btnStand;
     JButton btnExit;
 
-    public Game(JFrame frame1) {
+    public FreeplayGame(JFrame frame1) {
         mainFrame = frame1;
         deck = new Deck();
         deck.shuffle(); //we randomize the deck.

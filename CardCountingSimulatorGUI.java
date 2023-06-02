@@ -52,8 +52,9 @@ public class CardCountingSimulatorGUI extends JPanel implements MouseListener {
     g1d.setColor(Color.WHITE);
     g1d.setFont(new Font("Tahoma", Font.BOLD, 20));
     g1d.drawString("Balance: " + playerHand.getChips(), 55, 650);
-    g1d.drawString("True Count: " + playerHand.getChips(), 55, 650);
-    g1d.drawString("Running Count: " + playerHand.getChips(), 55, 650);
+    g1d.setColor(Color.GREEN);
+    g1d.drawString("True Count: " + playerHand.getTrueCount(), 1000, 30);
+    g1d.drawString("Running Count: " + playerHand.getRunningCount(), 1000, 70);
 
 
     try {

@@ -4,7 +4,8 @@ public class Main {
     public static JFrame menuFrame = new JFrame(); 
     public static JFrame ccFrame = new JFrame();
     public static JFrame freeplayFrame = new JFrame();
-    public static Game newGame = new Game(freeplayFrame);
+    public static FreeplayGame newGame = new FreeplayGame(freeplayFrame);
+    public static CardCountingSimulatorGame newCCGame = new CardCountingSimulatorGame(ccFrame);
 
 
     public static enum STATE{ 
@@ -38,10 +39,15 @@ public class Main {
     //     newGame.creatorComp.refresh(1000, true);
     // }}
     
+    public static void openCCSim2(){
+      ccFrame.getContentPane().removeAll();
+      newCCGame = new CardCountingSimulatorGame(ccFrame);
+      newCCGame.formGame();
+    }
     public static void openFreeplay2() {
       
       freeplayFrame.getContentPane().removeAll();
-      newGame = new Game(freeplayFrame); 
+      newGame = new FreeplayGame(freeplayFrame); 
       newGame.formGame();
   }
       
