@@ -13,7 +13,6 @@ public class Menu extends JComponent implements ActionListener {
     private JButton exitBTN = new JButton("Exit");
 
     private static BufferedImage backgroundImage;
-    private static BufferedImage decksterImage;
 
     private JFrame menuFrame;
 

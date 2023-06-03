@@ -66,6 +66,7 @@ public class CardCountingSimulatorGame {
         btnExit.setBounds(75, 5, 100, 50);
         btnExit.setFont(new Font("Tahoma", Font.BOLD, 16));
     
+        
         mainFrame.add(btnHit); 
         mainFrame.add(btnStand);
         mainFrame.add(btnExit);
